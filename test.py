@@ -8,7 +8,7 @@ from mysql.connector import errorcode
 try:
     cnx = mysql.connector.connect(user='root',
                                   password='password',                      
-                                  #host='127.20.48.1',
+                                  #host=host,
                                   #host='localhost',
                                   database='employees')
     cursor = cnx.cursor()
