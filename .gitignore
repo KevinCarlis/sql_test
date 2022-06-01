@@ -91,3 +91,4 @@ ENV/
 
 # mysql local
 data/db/
+employees.sql
