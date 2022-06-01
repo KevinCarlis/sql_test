@@ -90,6 +90,4 @@ ENV/
 .ropeproject
 
 # mysql local
-data/
-data/db/
 employees.sql
