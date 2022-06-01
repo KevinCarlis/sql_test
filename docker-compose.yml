@@ -12,14 +12,14 @@ services:
         cap_add:
             - SYS_NICE
         volumes:
-            #- ./employees.sql:/docker-entrypoint-initdb.d/employees.sql
-            - ./data/db:/var/lib/mysql
+            - ./employees.sql:/docker-entrypoint-initdb.d/employees.sql
+            - db_data:/var/lib/mysql
     adminer:
         image: adminer
         restart: always
         ports:
             - 8080:8080
-#volumes:
-    #db_data:
-        #driver: local
+volumes:
+    db_data:
+        driver: local
         #external: true
