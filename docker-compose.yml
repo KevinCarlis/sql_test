@@ -2,8 +2,11 @@ version: '3'
 services:
     py_app:
         build: .
+        container_name: py_app
         ports:
             - '5000:5000'
+        volumes: 
+            - ./app:/app
     db:
         image: mysql:latest
         container_name: test_sql

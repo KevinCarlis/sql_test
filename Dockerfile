@@ -1,12 +1,16 @@
-FROM ubuntu
+FROM python:3.8-slim-buster
 
 ADD ./app /app
 WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install python3-pip
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_ENV=development
+
+RUN apt-get update -y
+RUN apt-get install -y python3-pip
 RUN make
 
 EXPOSE 5000
 
-CMD ["python3", "app.py"]
+CMD ["flask", "run"]
