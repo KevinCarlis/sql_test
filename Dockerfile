@@ -1,5 +1,12 @@
-FROM mysql:latest
-COPY ./data/* /var/lib/mysql
-RUN mkdir /test
-COPY . /test
-RUN echo "Copied"
+FROM ubuntu
+
+ADD ./app /app
+WORKDIR /app
+
+RUN apt-get update
+RUN apt-get install python3-pip
+RUN make
+
+EXPOSE 5000
+
+CMD ["python3", "app.py"]

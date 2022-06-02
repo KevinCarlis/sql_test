@@ -10,9 +10,6 @@ or you need to comment out the line in docker-compose db:volumes: - ./data/emplo
 pip3 install mysql-connector-python
 ```
 
-## Notes
-I am not using the Dockerfile currently.
-
 ## Run
 ```
 docker-compose up --build -d
