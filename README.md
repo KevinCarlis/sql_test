@@ -3,8 +3,8 @@ Practice with docker and mysql
 
 ## Installation
 I'm using this sql database for practice https://www.dropbox.com/s/znmjrtlae6vt4zi/employees.sql?dl=0 </br>
-To add it to your server you need to put it in the root of the project /sql_test/
-or you need to comment out the line in docker-compose
+To add it to your server you need to put it in /sql_test/data/employees.sql
+or you need to comment out the line in docker-compose db:volumes: - ./data/employees etc
 
 ```
 pip3 install mysql-connector-python
