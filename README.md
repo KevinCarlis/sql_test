@@ -1,5 +1,5 @@
 # sql_test
-Practice with docker and mysql
+Practice with docker, flask, and mysql
 
 ## Installation
 I'm using this sql database for practice https://www.dropbox.com/s/znmjrtlae6vt4zi/employees.sql?dl=0 </br>
