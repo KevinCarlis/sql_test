@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import mysql.connector
 from mysql.connector import errorcode
 app = Flask(__name__)
@@ -8,14 +8,15 @@ app = Flask(__name__)
 #print(host)
 
 def connect():
+    config = {
+        'user': 'root',
+        'password': 'password',
+        'host': 'db',
+        'port': '3306',
+        'database': 'employees'
+    }
     try:
-        cnx = mysql.connector.connect(user='root',
-                                      password='password',                      
-                                      host='db',
-                                      #host=host,
-                                      #host='localhost',
-                                      port='3306',
-                                      database='employees')
+        cnx = mysql.connector.connect(**config)
         return cnx
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -39,9 +40,11 @@ def query():
              "WHERE dept_manager.to_date='9999-01-01' AND salaries.to_date='9999-01-01'")
     cursor.execute(query)
     ret = ''
-    for x in cursor:
-        ret += "{:14} {:16} {:20} {: >6}\n".format(*x)
-    return ret
+    #for x in cursor:
+        #ret += "{:14} {:16} {:20} {: >6}\n".format(*x)
+    #cnx.close()
+    print(cursor)
+    return render_template('table.html', tables=cursor)
 
 if __name__ == '__main__':
     app.run()
