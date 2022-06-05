@@ -3,7 +3,7 @@ FROM python:3.8-slim-buster
 ADD ./app /app
 WORKDIR /app
 
-ENV FLASK_APP=app.py
+ENV FLASK_APP=my_app
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=development
 
