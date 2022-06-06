@@ -1,21 +1,30 @@
 <!doctype html>
-<title>Employees Test</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<div class=page>
-    <h1>Managers</h1>
-    <table>
-        <tr>
-            <th>First</th>
-            <th>Last</th>
-            <th>Dept</th>
-            <th>Salary</th>
-        </tr>
-        {% for row in tables %}
-        <tr>
-            {% for x in row %}
-            <td>{{ x|e }}</td>
+<html lang="en">
+    <head>
+        <title>Employees Test</title>
+        <meta charset="utf-8">
+        <meta name="description" contect="MySQL Flask Test Website">
+        <meta name="keywords" contect="HTML,CSS,Flask,MySQLServer,Docker">
+        <meta name="author" contect="Kevin Carlis">
+        <meta name="viewport" contect="width=device-width, intial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <div class=page>
+        <h1>Managers</h1>
+        <table>
+            <tr>
+                <th>First</th>
+                <th>Last</th>
+                <th>Dept</th>
+                <th>Salary</th>
+            </tr>
+            {% for row in tables %}
+            <tr>
+                {% for x in row %}
+                <td>{{ x|e }}</td>
+                {% endfor %}
+            </tr>
             {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+        </table>
+    </div>
+</html>
