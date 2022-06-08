@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Managers{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Dept</th>
+            <th>Salary</th>
+        </tr>
+        {% for row in tables %}
+        <tr>
+            {% for x in row %}
+            <td>{{ x|e }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
