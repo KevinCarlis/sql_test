@@ -14,9 +14,10 @@ def table():
                  "INNER JOIN employees ON dept_manager.emp_no=employees.emp_no "
                  "INNER JOIN departments ON dept_manager.dept_no=departments.dept_no "
                  "INNER JOIN salaries ON dept_manager.emp_no=salaries.emp_no "
-             "WHERE dept_manager.to_date='9999-01-01' AND salaries.to_date='9999-01-01'")
+             "WHERE dept_manager.to_date='9999-01-01' AND salaries.to_date='9999-01-01' "
+             "ORDER BY salaries.salary DESC")
     cursor.execute(query)
-    return render_template('table.html', tables=cursor)
+    return render_template('table/table.html', tables=cursor)
 
 if __name__ == '__main__':
     app.run()
